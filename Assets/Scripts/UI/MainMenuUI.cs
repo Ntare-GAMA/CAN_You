@@ -31,11 +31,25 @@ namespace VaultsOfTheElixir.UI
 
         private void Awake()
         {
-            startGameButton.onClick.AddListener(OnStartGameClicked);
-            continueGameButton.onClick.AddListener(OnContinueClicked);
-            levelSelectButton.onClick.AddListener(OnLevelSelectClicked);
-            settingsButton.onClick.AddListener(OnSettingsClicked);
-            exitButton.onClick.AddListener(OnExitClicked);
+            // Null-checked so a partially-wired scene (buttons not yet
+            // created/assigned in the Inspector) logs a clear warning
+            // instead of throwing a NullReferenceException on startup.
+            SafeAddListener(startGameButton, OnStartGameClicked, nameof(startGameButton));
+            SafeAddListener(continueGameButton, OnContinueClicked, nameof(continueGameButton));
+            SafeAddListener(levelSelectButton, OnLevelSelectClicked, nameof(levelSelectButton));
+            SafeAddListener(settingsButton, OnSettingsClicked, nameof(settingsButton));
+            SafeAddListener(exitButton, OnExitClicked, nameof(exitButton));
+        }
+
+        private void SafeAddListener(Button button, UnityEngine.Events.UnityAction action, string fieldName)
+        {
+            if (button == null)
+            {
+                Debug.LogWarning($"[MainMenuUI] '{fieldName}' is not assigned in the Inspector — that button won't do anything until you assign it.");
+                return;
+            }
+
+            button.onClick.AddListener(action);
         }
 
         private void OnEnable()
@@ -43,7 +57,10 @@ namespace VaultsOfTheElixir.UI
             // Continue is only meaningful if a save already exists —
             // disable it rather than let it silently start a fresh game,
             // which would be confusing.
-            continueGameButton.interactable = SaveManager.Instance.HasSaveFile;
+            if (continueGameButton != null)
+            {
+                continueGameButton.interactable = SaveManager.Instance.HasSaveFile;
+            }
         }
 
         private void OnStartGameClicked()
