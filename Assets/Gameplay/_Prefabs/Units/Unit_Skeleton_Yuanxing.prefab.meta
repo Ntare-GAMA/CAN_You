@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 30c3b5ee1ab544f459527d7429b0f3cc
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/Units/Unit_Skeleton_Yuanxing.prefab
+  uploadId: 722358

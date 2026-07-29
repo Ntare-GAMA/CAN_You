@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5d1070c87e8980246a0d8c74d22e2661
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/UI/Generic/UI_Slider_Display.prefab
+  uploadId: 722358

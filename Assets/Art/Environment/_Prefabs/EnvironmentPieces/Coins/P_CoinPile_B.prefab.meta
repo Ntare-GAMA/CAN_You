@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b8d531913487f91469dae158a83f8768
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/_Prefabs/EnvironmentPieces/Coins/P_CoinPile_B.prefab
+  uploadId: 722358

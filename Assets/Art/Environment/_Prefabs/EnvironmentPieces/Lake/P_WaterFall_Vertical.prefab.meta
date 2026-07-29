@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 290e0e9b10008c145857e285043190a8
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/_Prefabs/EnvironmentPieces/Lake/P_WaterFall_Vertical.prefab
+  uploadId: 722358

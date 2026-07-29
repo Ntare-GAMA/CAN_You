@@ -7,3 +7,10 @@ ShaderImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - 2D Sample Project
+  packageVersion: 1.1
+  assetPath: Assets/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc
+  uploadId: 467401

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c92297d8df4f62c4ab53a81ef4390c3f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/Scripts/Utilities/SceneField/SceneField.cs
+  uploadId: 722358

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 221aba2951a8e8647b43ad62fb4d3de3
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/UI/Unit Displays/UI_Unit_Display_Hero.prefab
+  uploadId: 722358

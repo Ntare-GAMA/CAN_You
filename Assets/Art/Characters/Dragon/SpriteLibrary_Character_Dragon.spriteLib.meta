@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f20147a2099adb745b30e1f2e3314f2d
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: db2778f6d440c47ddacff25997d7c062, type: 3}
+  primaryLibrary: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Characters/Dragon/SpriteLibrary_Character_Dragon.spriteLib
+  uploadId: 722358

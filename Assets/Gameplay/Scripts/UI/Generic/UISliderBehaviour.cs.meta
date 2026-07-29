@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 894847c1d5ad7ff478f68d4e035ae70c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/Scripts/UI/Generic/UISliderBehaviour.cs
+  uploadId: 722358

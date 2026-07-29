@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ab4f7fa8fdea9d74c92a36a939e924fb
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/Managers/Manager_BattleGameplay.prefab
+  uploadId: 722358

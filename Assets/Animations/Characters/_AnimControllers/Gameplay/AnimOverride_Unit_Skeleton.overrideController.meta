@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 12c243104e060d740a995b582e535930
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Animations/Characters/_AnimControllers/Gameplay/AnimOverride_Unit_Skeleton.overrideController
+  uploadId: 722358

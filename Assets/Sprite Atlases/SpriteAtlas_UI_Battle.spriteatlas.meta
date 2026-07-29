@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3a9b905750bb988439aed9a55c18462f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4343727234628468602
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Sprite Atlases/SpriteAtlas_UI_Battle.spriteatlas
+  uploadId: 722358

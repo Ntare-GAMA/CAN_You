@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5e24ba5d5e2c9469f9a521b20e85b03c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/Scripts/Environment/SpriteShapeSwing.cs
+  uploadId: 722358

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5efc04fb1b31b6248932533c4864ddcb
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/Managers/Manager_FrameRate.prefab
+  uploadId: 722358

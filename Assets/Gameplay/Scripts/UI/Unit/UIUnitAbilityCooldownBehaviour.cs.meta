@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 39fc2d3905b7fef48b8aed2a41d96fbb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/Scripts/UI/Unit/UIUnitAbilityCooldownBehaviour.cs
+  uploadId: 722358

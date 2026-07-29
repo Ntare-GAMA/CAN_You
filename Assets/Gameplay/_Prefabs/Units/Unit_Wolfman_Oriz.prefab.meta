@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5bc18fe35a8058f46a5f2d75585cea83
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/Units/Unit_Wolfman_Oriz.prefab
+  uploadId: 722358

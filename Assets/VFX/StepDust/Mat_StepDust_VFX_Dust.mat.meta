@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d5c20cbc8d34e1e49a0d24d1f6b7c6ad
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/VFX/StepDust/Mat_StepDust_VFX_Dust.mat
+  uploadId: 722358

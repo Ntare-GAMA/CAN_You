@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 776e22c1bd94e471fbfe9f6c607607e8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/EnvironmentPieces/Lamp/Mat_Lamp_Core.mat
+  uploadId: 722358

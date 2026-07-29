@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f78111d867f50d34499a70cc50f5e99f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Animations/Environment/Spider/AnimController_Spider.controller
+  uploadId: 722358

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6e245a9ae01adc0499d7147e3c23a0a1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/VFX/HitEffect/ObjectPool/Data_ObjectPool_HitVFX.asset
+  uploadId: 722358

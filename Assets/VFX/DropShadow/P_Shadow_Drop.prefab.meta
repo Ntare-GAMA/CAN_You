@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b861c3183c1c2b941bbfd5b64483eb84
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/VFX/DropShadow/P_Shadow_Drop.prefab
+  uploadId: 722358

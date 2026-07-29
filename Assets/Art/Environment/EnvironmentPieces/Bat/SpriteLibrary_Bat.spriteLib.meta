@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cfa5b38e54386ba479221ddfd8b4c5e5
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: db2778f6d440c47ddacff25997d7c062, type: 3}
+  primaryLibrary: {instanceID: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/EnvironmentPieces/Bat/SpriteLibrary_Bat.spriteLib
+  uploadId: 722358

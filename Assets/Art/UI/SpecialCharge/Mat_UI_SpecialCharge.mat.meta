@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c799f3257486c4cc8bcadc90ada76c2f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/UI/SpecialCharge/Mat_UI_SpecialCharge.mat
+  uploadId: 722358

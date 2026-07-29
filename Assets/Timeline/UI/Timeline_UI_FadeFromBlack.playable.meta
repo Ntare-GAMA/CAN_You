@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3cc1609eab78ceb4489e1ccfaafababb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Timeline/UI/Timeline_UI_FadeFromBlack.playable
+  uploadId: 722358

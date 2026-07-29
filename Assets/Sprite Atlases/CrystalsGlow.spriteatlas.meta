@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 22c638972965e42ceb0f8766d89b1917
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4343727234628468602
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Sprite Atlases/CrystalsGlow.spriteatlas
+  uploadId: 722358

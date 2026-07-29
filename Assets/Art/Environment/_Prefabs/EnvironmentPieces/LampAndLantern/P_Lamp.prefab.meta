@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 73ede0e39d05144b8b06451cf82a90f3
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/_Prefabs/EnvironmentPieces/LampAndLantern/P_Lamp.prefab
+  uploadId: 722358

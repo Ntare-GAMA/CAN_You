@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fa71eaebd4e597741bc798758d1f8d7b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Animations/Characters/AnimClips/Witch/Anim_Character_Witch_Idle.anim
+  uploadId: 722358

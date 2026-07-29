@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3f3262d1093edf44ab59cb51465e40f2
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/UI/CanvasOverlays/Canvas_Victory.prefab
+  uploadId: 722358

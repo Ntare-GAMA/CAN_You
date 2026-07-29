@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0421efd142ba4414e8cd7c65a7f2544e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/EnvironmentPieces/Bridge/SpriteShape_Bridge.asset
+  uploadId: 722358

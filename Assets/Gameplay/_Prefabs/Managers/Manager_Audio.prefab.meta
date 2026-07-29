@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b47342bf56957784da6a33af14c9a270
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/Managers/Manager_Audio.prefab
+  uploadId: 722358

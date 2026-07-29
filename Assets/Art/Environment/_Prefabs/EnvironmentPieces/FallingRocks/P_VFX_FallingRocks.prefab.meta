@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 76967f71183344c4998c03a0daf986e9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/_Prefabs/EnvironmentPieces/FallingRocks/P_VFX_FallingRocks.prefab
+  uploadId: 722358

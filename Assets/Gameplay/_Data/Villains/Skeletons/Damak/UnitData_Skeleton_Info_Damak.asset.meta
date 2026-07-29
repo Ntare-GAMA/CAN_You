@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 53f71a3eafe22d34ebfe38ad450ab2d4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Data/Villains/Skeletons/Damak/UnitData_Skeleton_Info_Damak.asset
+  uploadId: 722358

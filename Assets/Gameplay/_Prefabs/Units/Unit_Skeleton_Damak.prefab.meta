@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4b4ed99cded1c384ab2cd63b8178d7a6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/Units/Unit_Skeleton_Damak.prefab
+  uploadId: 722358

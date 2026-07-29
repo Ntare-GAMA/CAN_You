@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fc91256cb9818a64197e1d6eaf5cec41
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/_Prefabs/EnvironmentPieces/Crates/P_Crate_Crystals.prefab
+  uploadId: 722358

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 51eebf874b5ece44cba5cfaa251a1677
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Animations/Logo/AnimController_Logo_Sequence.controller
+  uploadId: 722358

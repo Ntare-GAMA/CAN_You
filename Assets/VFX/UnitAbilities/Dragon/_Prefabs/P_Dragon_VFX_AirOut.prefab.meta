@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ec4f3d5465b5161419ec253ca2151492
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/VFX/UnitAbilities/Dragon/_Prefabs/P_Dragon_VFX_AirOut.prefab
+  uploadId: 722358

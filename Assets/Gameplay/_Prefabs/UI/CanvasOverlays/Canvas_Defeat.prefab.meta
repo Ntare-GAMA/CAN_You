@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d6f94aa9ae11f834f99895e8b2c9ad6b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/UI/CanvasOverlays/Canvas_Defeat.prefab
+  uploadId: 722358

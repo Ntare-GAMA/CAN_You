@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3d9e9ecd6f0fa344194946c7ab3317ed
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/Scripts/Unit/Data/UnitAbilityData.cs
+  uploadId: 722358

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 30f516ce8f9f44b65af2857bbccda94d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Tilemaps/Walls/Tiles/Tile_Wall_7.asset
+  uploadId: 722358

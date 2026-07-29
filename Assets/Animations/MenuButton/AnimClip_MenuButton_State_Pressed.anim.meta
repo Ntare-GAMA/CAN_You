@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 433c5d1b327262e4683cc512a8b6940c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Animations/MenuButton/AnimClip_MenuButton_State_Pressed.anim
+  uploadId: 722358

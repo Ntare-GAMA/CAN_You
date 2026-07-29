@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a03bf76469115274580151627f824c38
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Animations/Environment/Spider/Anim_Spider_Down.anim
+  uploadId: 722358

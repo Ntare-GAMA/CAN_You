@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5d864280d5bda8a4cb7d7283519e8d1c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Data/Villains/Dragon/UnitData_Dragon_Info_Rustum.asset
+  uploadId: 722358

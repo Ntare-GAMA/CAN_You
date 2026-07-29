@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1320caf7195cd7540b3548da5508464f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/_Prefabs/EnvironmentPieces/Rocks/P_Rock_Column.prefab
+  uploadId: 722358

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f80cb81d5af7f3843b0c3ab52c856be3
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/_Prefabs/EnvironmentPieces/Miscellaneous/P_Ladder.prefab
+  uploadId: 722358

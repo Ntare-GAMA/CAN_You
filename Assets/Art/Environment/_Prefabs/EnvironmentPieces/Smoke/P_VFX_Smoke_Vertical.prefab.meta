@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 47f7aa495b3b44d2e9f1b4e168370c61
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/_Prefabs/EnvironmentPieces/Smoke/P_VFX_Smoke_Vertical.prefab
+  uploadId: 722358

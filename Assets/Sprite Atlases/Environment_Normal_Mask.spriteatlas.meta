@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0ebecc450af184b508d13e949b3fbeb9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4343727234628468602
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Sprite Atlases/Environment_Normal_Mask.spriteatlas
+  uploadId: 722358

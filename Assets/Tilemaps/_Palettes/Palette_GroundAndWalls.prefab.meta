@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c36ba7c80570d4a618fffc74bbb1e1f0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Tilemaps/_Palettes/Palette_GroundAndWalls.prefab
+  uploadId: 722358

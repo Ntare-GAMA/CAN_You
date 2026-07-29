@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ad251233c4282e14993c120c8c3ad21e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Prefabs/Units/Unit_Skeleton_Jabban.prefab
+  uploadId: 722358

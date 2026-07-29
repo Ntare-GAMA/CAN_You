@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a2aa8beef648c4dc1965e81842c7e68a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Cinemachine/Noise/NoiseSettings.asset
+  uploadId: 722358

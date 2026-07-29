@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 232b1bbaef48ff5438b913c085f98593
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Data/Heroes/Witch/UnitData_Witch_Info_Giorgia.asset
+  uploadId: 722358

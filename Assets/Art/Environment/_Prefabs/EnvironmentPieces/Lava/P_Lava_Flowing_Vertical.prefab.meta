@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b2f0c6bd2a8e46641bac61740f16e584
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Art/Environment/_Prefabs/EnvironmentPieces/Lava/P_Lava_Flowing_Vertical.prefab
+  uploadId: 722358

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1ffdb984dc29e464ea492168003a959c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/VFX/CameraSortingLayerTexture/Mat_Smoke_New.mat
+  uploadId: 722358

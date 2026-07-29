@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f58fa01d5d30d4806b14e4a7de30340e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/ReadMe/BlocksInfoData/uitoolkit.asset
+  uploadId: 722358

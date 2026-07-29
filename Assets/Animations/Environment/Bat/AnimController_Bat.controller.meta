@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6295bb33cdd21c0439737035aa996c31
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Animations/Environment/Bat/AnimController_Bat.controller
+  uploadId: 722358

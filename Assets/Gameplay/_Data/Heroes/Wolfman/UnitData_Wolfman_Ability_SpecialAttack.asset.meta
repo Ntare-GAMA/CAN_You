@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: de666eb15cd2a6f41a63316dc38c3b3a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 190721
+  packageName: Dragon Crashers - URP 2D Sample Project
+  packageVersion: 1.61
+  assetPath: Assets/Gameplay/_Data/Heroes/Wolfman/UnitData_Wolfman_Ability_SpecialAttack.asset
+  uploadId: 722358
