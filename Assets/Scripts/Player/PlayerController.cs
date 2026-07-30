@@ -11,17 +11,27 @@ namespace VaultsOfTheElixir.Player
     /// Also implements ISaveable so SaveManager can persist health across
     /// sessions without knowing anything about PlayerController itself.
     ///
-    /// Ability slots are assigned in the Inspector as MonoBehaviours that
-    /// implement IAbility (e.g. EmberDashAbility, VaultPulseAbility) —
-    /// swapping which component sits in a slot changes the ability with
-    /// zero changes to this script, which is the whole point of Strategy
-    /// pattern here.
+    /// SIDE-SCROLLER MOVEMENT: horizontal movement comes from input;
+    /// vertical movement comes ONLY from gravity + jump impulses, never
+    /// directly from input. This is what keeps the player grounded —
+    /// there's no way to hold a direction and float upward, only a single
+    /// timed jump impulse from the ground. Jump is just enough to clear
+    /// gaps/obstacles on the ground plane; it is not flight and cannot be
+    /// chained mid-air (see isGrounded gating in TryJump()).
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerController : MonoBehaviour, IDamageable, ISaveable
     {
         [Header("Movement")]
         [SerializeField] private float moveSpeed = 5f;
+
+        [Header("Jump")]
+        [SerializeField] private float jumpForce = 8f;
+        [Tooltip("Empty child GameObject positioned at the player's feet, used to detect ground contact.")]
+        [SerializeField] private Transform groundCheck;
+        [SerializeField] private float groundCheckRadius = 0.2f;
+        [Tooltip("Set this to whatever Layer your ground/platform colliders use.")]
+        [SerializeField] private LayerMask groundLayer;
 
         [Header("Combat")]
         [SerializeField] private int maxHealth = 100;
@@ -34,12 +44,15 @@ namespace VaultsOfTheElixir.Player
         [SerializeField] private MonoBehaviour abilitySlot2;
 
         private Rigidbody2D rb;
-        private Vector2 _moveInput;
+        private float _horizontalInput;
+        private bool _jumpQueued;
+        private bool _isGrounded;
         private int _currentHealth;
         private bool _isDead;
 
         public int CurrentHealth => _currentHealth;
         public int MaxHealth => maxHealth;
+        public bool IsGrounded => _isGrounded;
 
         private IAbility Ability1 => abilitySlot1 as IAbility;
         private IAbility Ability2 => abilitySlot2 as IAbility;
@@ -48,30 +61,63 @@ namespace VaultsOfTheElixir.Player
         {
             rb = GetComponent<Rigidbody2D>();
             _currentHealth = maxHealth;
+
+            if (groundCheck == null)
+            {
+                Debug.LogWarning("[PlayerController] No Ground Check assigned — jump will never register as grounded. " +
+                                  "Create an empty child GameObject at the player's feet and assign it in the Inspector.");
+            }
         }
 
         private void Update()
         {
             if (_isDead) return;
 
-            _moveInput.x = Input.GetAxisRaw("Horizontal");
-            _moveInput.y = Input.GetAxisRaw("Vertical");
+            _horizontalInput = Input.GetAxisRaw("Horizontal");
+
+            // Jump input: Space (default "Jump" button) or W, either triggers it.
+            if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W))
+            {
+                _jumpQueued = true;
+            }
 
             if (Input.GetKeyDown(KeyCode.E)) TryInteract();
             if (Input.GetKeyDown(KeyCode.Q)) TryActivateAbility(Ability1);
             if (Input.GetKeyDown(KeyCode.R)) TryActivateAbility(Ability2);
 
-            if (_moveInput.x != 0f)
+            if (_horizontalInput != 0f)
             {
                 var scale = transform.localScale;
-                transform.localScale = new Vector3(Mathf.Sign(_moveInput.x) * Mathf.Abs(scale.x), scale.y, scale.z);
+                transform.localScale = new Vector3(Mathf.Sign(_horizontalInput) * Mathf.Abs(scale.x), scale.y, scale.z);
             }
         }
 
         private void FixedUpdate()
         {
             if (_isDead) return;
-            rb.linearVelocity = _moveInput.normalized * moveSpeed;
+
+            // Ground check happens in FixedUpdate to stay in sync with physics.
+            _isGrounded = groundCheck != null &&
+                          Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+            // Horizontal movement is fully player-controlled.
+            // Vertical velocity is left alone here so gravity keeps acting on it —
+            // this is what stops the player from ever moving straight up on input.
+            float verticalVelocity = rb.linearVelocity.y;
+
+            if (_jumpQueued)
+            {
+                if (_isGrounded)
+                {
+                    verticalVelocity = jumpForce;
+                }
+                // Consume the queued jump either way — a jump press while
+                // airborne is simply dropped, not buffered, so there's no
+                // way to jump again before landing.
+                _jumpQueued = false;
+            }
+
+            rb.linearVelocity = new Vector2(_horizontalInput * moveSpeed, verticalVelocity);
         }
 
         private void TryInteract()
@@ -151,5 +197,14 @@ namespace VaultsOfTheElixir.Player
                 GameEvents.RaiseHealthChanged(_currentHealth, maxHealth);
             }
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmosSelected()
+        {
+            if (groundCheck == null) return;
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+#endif
     }
 }
