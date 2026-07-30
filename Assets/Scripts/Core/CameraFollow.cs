@@ -30,5 +30,21 @@ namespace VaultsOfTheElixir.Core
             Vector3 desiredPosition = _target.position + offset;
             transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         }
+
+        /// <summary>
+        /// Instantly cuts the camera to the Player's current position,
+        /// skipping the smoothing lerp. Call this right after teleporting
+        /// the Player to a new vault's spawn point (see
+        /// GameManager.HandleSceneLoaded), so the camera doesn't visibly
+        /// slide across the map from the old vault's position to the new one.
+        /// </summary>
+        public void SnapToTarget()
+        {
+            var player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null) return;
+
+            _target = player.transform;
+            transform.position = _target.position + offset;
+        }
     }
 }

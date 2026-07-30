@@ -99,11 +99,12 @@ namespace VaultsOfTheElixir.UI
 
         private void OnContinueClicked()
         {
-            // SaveManager already loaded CurrentSave on Awake — simply
-            // move to Playing state. Which vault/hub position the player
-            // lands in is a scene-specific detail handled wherever your
-            // hub scene reads GameManager.CurrentLevelIndex on load.
-            GameManager.Instance.SetState(GameState.Playing);
+            // With one scene per vault, "Continue" has no single scene to
+            // drop the player back into — Level Select is the natural
+            // place to resume from, since it already shows exactly which
+            // vaults are locked/available/completed via SaveManager's
+            // persisted data.
+            UIManager.Instance.OpenLevelSelect();
         }
 
         private void OnLevelSelectClicked()

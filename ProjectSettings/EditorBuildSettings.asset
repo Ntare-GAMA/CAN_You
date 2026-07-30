@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Gameplay/Scene_Game_Menu.unity
-    guid: 46d81aa3d4d39ea429ffad6d5857a6e4
+    path: Assets/Scenes/Vault0_Scorpion.unity
+    guid: ac4dbbd24d8d8274e89879011ca1b5fc
   - enabled: 1
-    path: Assets/Scenes/Gameplay/Scene_Battle_Skeletons.unity
-    guid: 9e4adac3b4d37e84d90eb723d1fb3f0b
+    path: Assets/Scenes/Vault1_Anaconda.unity
+    guid: 5745b2aa6de973647a21022427e8d947
   - enabled: 1
-    path: Assets/Scenes/Gameplay/Scene_Battle_Dragon.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/Vault2_ArmedGuard.unity
+    guid: 16c3b29e57daa134fafa43012844b675
+  - enabled: 1
+    path: Assets/Scenes/Vault3_Dragon.unity
+    guid: eb163f4c31b14604c85364feac221d16
+  - enabled: 1
+    path: Assets/Scenes/Vault4_Dinosaurs.unity
+    guid: 304c08da45b91c54ab8f674599e3d487
   m_configObjects: {}

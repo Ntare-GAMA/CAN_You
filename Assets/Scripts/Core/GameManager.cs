@@ -92,6 +92,13 @@ namespace VaultsOfTheElixir.Core
                 player.transform.position = spawnPoint.transform.position;
             }
 
+            var mainCamera = Camera.main;
+            if (mainCamera != null)
+            {
+                var cameraFollow = mainCamera.GetComponent<CameraFollow>();
+                cameraFollow?.SnapToTarget();
+            }
+
             SetState(GameState.Playing);
         }
 
