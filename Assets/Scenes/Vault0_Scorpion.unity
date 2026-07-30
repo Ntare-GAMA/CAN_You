@@ -294,6 +294,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &639955802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 639955803}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &639955803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639955802}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.45, y: -1.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1206433023}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653980235
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +350,7 @@ Transform:
   m_GameObject: {fileID: 653980235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 223, y: 142, z: 0}
+  m_LocalPosition: {x: 223, y: 131, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -523,6 +554,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4016133381547466962, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: attackKey
+      value: 102
+      objectReference: {fileID: 0}
     - target: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -573,6 +609,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 639955803}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7828898046309491116, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
       propertyPath: m_Offset.x
@@ -585,9 +631,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1511589188}
+    - targetCorrespondingSourceObject: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 639955803}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2543519611116678818, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1206433024}
   m_SourcePrefab: {fileID: 100100000, guid: cc497175164f31b44a88288c8cf48bc3, type: 3}
+--- !u!1 &1206433022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2543519611116678818, guid: cc497175164f31b44a88288c8cf48bc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1206433021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1206433023 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1206433021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1206433024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206433022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d76e13336ca7c64ba0f153c3c3f4864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VaultsOfTheElixir.Player.PlayerShoot
+  firePoint: {fileID: 1511589188}
+  projectilePoolKey: player_bullet
+  shootDamage: 12
+  shootCooldown: 0.4
+  shootKey: 323
+--- !u!1 &1511589187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511589188}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1511589188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511589187}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.79, y: 0.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1206433023}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594896080
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +717,7 @@ GameObject:
   - component: {fileID: 1594896082}
   - component: {fileID: 1594896081}
   - component: {fileID: 1594896083}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,11 +882,15 @@ MonoBehaviour:
   vaultIndex: 0
   relicPrefab: {fileID: 1807705027593523414, guid: 17e8f4252a47fda47b15a5a8fee2f69e,
     type: 3}
+  skipRelicSpawn: 0
   maxHealth: 100
   detectionRange: 8
   attackRange: 1.5
   runSpeed: 10
   attackCooldown: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   stingDamage: 12
 --- !u!95 &2049418557
 Animator:
