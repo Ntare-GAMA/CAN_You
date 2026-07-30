@@ -97,10 +97,10 @@ namespace VaultsOfTheElixir.Core
             // spawn positioning, camera snap, and GameState transition —
             // LevelManager no longer loads scenes directly.
             int nextVaultToLoad = levelIndex + 1;
-            if (nextVaultToLoad < TotalLevels)
-            {
+            if (nextVaultToLoad < TotalLevels && GameManager.Instance != null)
+              {
                 GameManager.Instance.LoadLevel(nextVaultToLoad);
-            }
+              }
         }
 
         private void TryUnlockFinalVault()
