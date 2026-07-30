@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using VaultsOfTheElixir.Interfaces;
 using VaultsOfTheElixir.Core;
 
@@ -29,6 +30,9 @@ namespace VaultsOfTheElixir.Enemies
         [Tooltip("Which vault (0-4) this guardian belongs to — used to spawn the correct relic on death.")]
         [SerializeField] protected int vaultIndex;
         [SerializeField] protected GameObject relicPrefab;
+        [Tooltip("If true, this guardian does NOT spawn a relic prefab on death and does NOT log the 'no relic assigned' warning. " +
+                 "Use this for guardians whose defeat is tracked some other way (e.g. Vault 4's kill-count-based completion via onDeath).")]
+        [SerializeField] protected bool skipRelicSpawn = false;
 
         [Header("Stats")]
         [SerializeField] protected int maxHealth = 100;
@@ -36,6 +40,11 @@ namespace VaultsOfTheElixir.Enemies
         [SerializeField] protected float attackRange = 1.5f;
         [SerializeField] protected float runSpeed = 3.5f;
         [SerializeField] protected float attackCooldown = 2f;
+
+        [Header("Events")]
+        [Tooltip("Invoked once, right when this guardian dies. Wire this in the Inspector to hook up " +
+                 "custom completion logic (e.g. Vault4BossManager.RegisterDinosaurDefeated) without editing this script.")]
+        public UnityEvent onDeath;
 
         protected Rigidbody2D rb;
         protected Animator animator;
@@ -172,23 +181,35 @@ namespace VaultsOfTheElixir.Enemies
             }
         }
 
+        /// <summary>
+        /// Instant death: no lingering corpse, no death animation window.
+        /// The moment health hits 0, the guardian vanishes. If a relic
+        /// prefab is assigned (and skipRelicSpawn is false), it spawns in
+        /// the guardian's place as usual. Either way, onDeath fires once —
+        /// this is what lets Vault 4's three Dinosaurs trigger completion
+        /// by kill count instead of by relic pickup.
+        /// </summary>
         public virtual void Die()
         {
             CurrentState = EnemyState.Dead;
-            rb.linearVelocity = Vector2.zero;
-            animator?.SetTrigger("Death");
 
             GameEvents.RaiseEnemyDefeated(gameObject);
 
-            if (relicPrefab != null)
+            if (!skipRelicSpawn)
             {
-                Instantiate(relicPrefab, transform.position, Quaternion.identity);
+                if (relicPrefab != null)
+                {
+                    Instantiate(relicPrefab, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogWarning($"[Guardian] {gameObject.name} has no Relic Prefab assigned — vault won't be completable!");
+                }
             }
 
-            var col = GetComponent<Collider2D>();
-            if (col != null) col.enabled = false;
+            onDeath?.Invoke();
 
-            Destroy(gameObject, 3f);
+            Destroy(gameObject);
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D other)
