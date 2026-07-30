@@ -386,6 +386,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &682746576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682746577}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &682746577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682746576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.63, y: 0.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1315896333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &782469093
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +521,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4016133381547466962, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: attackKey
+      value: 102
+      objectReference: {fileID: 0}
     - target: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -540,6 +576,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1832821426}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7828898046309491116, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
       propertyPath: m_Offset.y
@@ -547,9 +593,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 682746577}
+    - targetCorrespondingSourceObject: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1832821426}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2543519611116678818, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1315896334}
   m_SourcePrefab: {fileID: 100100000, guid: cc497175164f31b44a88288c8cf48bc3, type: 3}
+--- !u!1 &1315896332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2543519611116678818, guid: cc497175164f31b44a88288c8cf48bc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1315896331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1315896333 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1315896331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1315896334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315896332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d76e13336ca7c64ba0f153c3c3f4864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VaultsOfTheElixir::VaultsOfTheElixir.Player.PlayerShoot
+  firePoint: {fileID: 682746577}
+  projectilePoolKey: player_bullet
+  shootDamage: 12
+  shootCooldown: 0.4
+  shootKey: 323
 --- !u!1 &1391487966
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +710,7 @@ GameObject:
   - component: {fileID: 1750666017}
   - component: {fileID: 1750666016}
   - component: {fileID: 1750666018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,6 +838,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1832821425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1832821426}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1832821426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832821425}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.51, y: -1.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1315896333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882451218
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +926,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 8
+  m_Radius: 3
 --- !u!95 &1882451221
 Animator:
   serializedVersion: 7
@@ -943,8 +1061,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: dfe2da12be5f5994286f281b2cde6656, type: 3}
-  m_Color: {r: 0.133796, g: 0.7735849, b: 0.23087011, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4574f971d70a83c41ade6083ada1035a, type: 3}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -961,14 +1079,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882451218}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7016749, w: 0.7124973}
-  m_LocalPosition: {x: 786, y: 149, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.014506955, w: 0.99989486}
+  m_LocalPosition: {x: 786, y: 158, z: 0}
+  m_LocalScale: {x: 46.930202, y: 50.242535, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1610161638}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.123}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.662}
 --- !u!114 &1882451226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,11 +1102,15 @@ MonoBehaviour:
   vaultIndex: 3
   relicPrefab: {fileID: 1807705027593523414, guid: 53a82a1174532ce4fa8163ead1fb9f65,
     type: 3}
+  skipRelicSpawn: 0
   maxHealth: 100
   detectionRange: 8
   attackRange: 1.5
   runSpeed: 3.5
   attackCooldown: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   breathDamage: 18
   breathOrigin: {fileID: 31565519}
   fireballPoolKey: dragon_fireball
