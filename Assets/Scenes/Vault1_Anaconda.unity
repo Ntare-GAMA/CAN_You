@@ -156,11 +156,15 @@ MonoBehaviour:
   vaultIndex: 1
   relicPrefab: {fileID: 1807705027593523414, guid: 4390dbdba3bc8064ebd4108bceabee2a,
     type: 3}
+  skipRelicSpawn: 0
   maxHealth: 100
   detectionRange: 8
   attackRange: 1.5
   runSpeed: 3.5
   attackCooldown: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   constrictDamagePerTick: 4
   constrictDuration: 10
   tickInterval: 0.5
@@ -370,7 +374,7 @@ GameObject:
   - component: {fileID: 260690393}
   - component: {fileID: 260690392}
   - component: {fileID: 260690394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,6 +585,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &695739859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 695739860}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &695739860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695739859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25, y: -0.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1662102773}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &837146507
 GameObject:
@@ -825,6 +860,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VaultsOfTheElixir.Core.CameraFollow
   smoothSpeed: 5
   offset: {x: 0, y: 0, z: -10}
+--- !u!1 &1026900369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1026900370}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1026900370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026900369}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7, y: 0.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1662102773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1201207650
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016133381547466962, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: attackKey
+      value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
@@ -919,6 +990,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 695739860}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7828898046309491116, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
       propertyPath: m_Offset.y
@@ -926,9 +1007,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1026900370}
+    - targetCorrespondingSourceObject: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 695739860}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2543519611116678818, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1662102775}
   m_SourcePrefab: {fileID: 100100000, guid: cc497175164f31b44a88288c8cf48bc3, type: 3}
+--- !u!4 &1662102773 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1662102772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1662102774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2543519611116678818, guid: cc497175164f31b44a88288c8cf48bc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1662102772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1662102775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662102774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d76e13336ca7c64ba0f153c3c3f4864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VaultsOfTheElixir::VaultsOfTheElixir.Player.PlayerShoot
+  firePoint: {fileID: 1026900370}
+  projectilePoolKey: player_bullet
+  shootDamage: 12
+  shootCooldown: 0.4
+  shootKey: 323
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
