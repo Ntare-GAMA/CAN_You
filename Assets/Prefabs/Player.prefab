@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7828898046309491116
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,7 +180,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7909741ce2e0df46b34d1a4ca4aa56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VaultsOfTheElixir.Player.PlayerController
-  moveSpeed: 30
+  moveSpeed: 60
+  jumpForce: 50
+  groundCheck: {fileID: 0}
+  groundCheckRadius: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   maxHealth: 100
   interactionRadius: 1.2
   abilitySlot1: {fileID: 0}

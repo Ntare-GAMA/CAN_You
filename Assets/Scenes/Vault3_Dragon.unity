@@ -526,6 +526,11 @@ PrefabInstance:
       propertyPath: attackKey
       value: 102
       objectReference: {fileID: 0}
+    - target: {fileID: 4016133381547466962, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: attackDamage
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4795400986241728621, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -578,9 +583,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
+      propertyPath: jumpForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 1832821426}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: groundCheckRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
       propertyPath: groundLayer.m_Bits
@@ -634,7 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: VaultsOfTheElixir::VaultsOfTheElixir.Player.PlayerShoot
   firePoint: {fileID: 682746577}
   projectilePoolKey: player_bullet
-  shootDamage: 12
+  shootDamage: 10
   shootCooldown: 0.4
   shootKey: 323
 --- !u!1 &1391487966
@@ -863,7 +878,7 @@ Transform:
   m_GameObject: {fileID: 1832821425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51, y: -1.14, z: 0}
+  m_LocalPosition: {x: 0.1, y: -0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1011,7 +1026,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1882451224
 SpriteRenderer:
   serializedVersion: 2
@@ -1062,7 +1077,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 4574f971d70a83c41ade6083ada1035a, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.988965, b: 0.11006278, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

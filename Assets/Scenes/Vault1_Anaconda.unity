@@ -288,7 +288,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &171280884
 SpriteRenderer:
   serializedVersion: 2
@@ -611,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 695739859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -0.79, z: 0}
+  m_LocalPosition: {x: -0.05, y: -0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -992,9 +992,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
+      propertyPath: jumpForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 695739860}
+    - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
+        type: 3}
+      propertyPath: groundCheckRadius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7177263874015600752, guid: cc497175164f31b44a88288c8cf48bc3,
         type: 3}
       propertyPath: groundLayer.m_Bits
