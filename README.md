@@ -1,4 +1,4 @@
-# Chronicles of the Lost Dungeon — Vaults of the Elixir
+# Chronicles of the Lost Dungeon - Vaults of the Elixir
 
 A 2D top-down dungeon game built in Unity. Five vaults, five distinct guardians, one
 Elixir of Life waiting at the end for whoever survives them all.
