@@ -100,6 +100,9 @@ namespace VaultsOfTheElixir.Player
             _isGrounded = groundCheck != null &&
                           Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
+            // TEMPORARY DIAGNOSTIC — remove once jump is confirmed working.
+            Debug.Log($"[PlayerController] isGrounded: {_isGrounded} | groundCheck pos: {groundCheck?.position} | radius: {groundCheckRadius} | groundLayer mask: {groundLayer.value}");
+
             // Horizontal movement is fully player-controlled.
             // Vertical velocity is left alone here so gravity keeps acting on it —
             // this is what stops the player from ever moving straight up on input.
