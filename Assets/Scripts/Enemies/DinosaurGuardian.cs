@@ -59,11 +59,15 @@ namespace VaultsOfTheElixir.Enemies
 
             if (playerTransform != null)
             {
-                Vector2 direction = ((Vector2)playerTransform.position - rb.position).normalized;
-                rb.linearVelocity = direction * chargeSpeed;
+                float horizontalDirection = Mathf.Sign(playerTransform.position.x - rb.position.x);
 
-                float dist = Vector2.Distance(transform.position, playerTransform.position);
-                if (dist <= chargeAttackRange)
+                // Same principle as the base Guardian.Move() fix — never
+                // overwrite vertical velocity directly, let gravity own it.
+                float verticalVelocity = rb.linearVelocity.y;
+                rb.linearVelocity = new Vector2(horizontalDirection * chargeSpeed, verticalVelocity);
+
+                float horizontalDist = Mathf.Abs(transform.position.x - playerTransform.position.x);
+                if (horizontalDist <= chargeAttackRange)
                 {
                     int scaledCharge = DifficultyCurve.ScaleDamage(chargeDamage, vaultIndex);
                     playerTransform.GetComponent<IDamageable>()?.TakeDamage(scaledCharge);
