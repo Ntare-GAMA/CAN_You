@@ -46,6 +46,23 @@ namespace VaultsOfTheElixir.Enemies
                  "custom completion logic (e.g. Vault4BossManager.RegisterDinosaurDefeated) without editing this script.")]
         public UnityEvent onDeath;
 
+        [Header("Obstacle Handling")]
+        [Tooltip("If a guardian's actual movement stays below this each frame while trying to chase, it's considered blocked by an obstacle.")]
+        [SerializeField] protected float stuckMovementThreshold = 0.02f;
+        [Tooltip("How long a guardian must be blocked before it switches to pacing instead of pushing uselessly.")]
+        [SerializeField] protected float stuckTimeBeforePacing = 0.5f;
+        [Tooltip("How far (in world units) a guardian retreats from a blocking obstacle before trying to chase again.")]
+        [SerializeField] protected float retreatDistance = 8f;
+
+        private Vector2 _lastPosition;
+        private Vector2 _retreatStartPosition;
+        private Vector2 _retreatCheckPosition;
+        private float _stuckTimer;
+        private float _retreatStuckTimer;
+        private float _paceTimer;
+        private bool _isPacing;
+        private float _paceDirection = 1f;
+
         protected Rigidbody2D rb;
         protected Animator animator;
         protected Transform playerTransform;
@@ -60,6 +77,7 @@ namespace VaultsOfTheElixir.Enemies
         {
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            _lastPosition = transform.position;
 
             // Health scales per vault via the shared DifficultyCurve, so
             // later guardians are tankier without hand-tuning each one.
@@ -140,29 +158,111 @@ namespace VaultsOfTheElixir.Enemies
         /// control their vertical position. This is what stops a guardian from
         /// climbing/floating upward to match the player's height when the
         /// player jumps.
+        ///
+        /// Since enemies (like the player) can never go above ground level,
+        /// there's no way to path "over" an obstacle blocking the direct line
+        /// to the player. Instead of freezing and pushing uselessly into it
+        /// forever, a blocked guardian paces side-to-side near the obstacle —
+        /// still visibly active and still a threat if the player gets close,
+        /// but not permanently stuck either.
         /// </summary>
         public virtual void Move()
         {
             if (playerTransform == null) return;
 
             float horizontalDirection = Mathf.Sign(playerTransform.position.x - rb.position.x);
-
-            // Preserve whatever vertical velocity gravity has already applied —
-            // never overwrite it here, same principle as PlayerController.
             float verticalVelocity = rb.linearVelocity.y;
-            rb.linearVelocity = new Vector2(horizontalDirection * runSpeed, verticalVelocity);
+
+            // Detect blocked movement: how far did we actually move last frame?
+            // We check ACTUAL POSITION CHANGE, not rb.linearVelocity — physics
+            // engines commonly zero out velocity the instant a collision happens,
+            // so checking velocity here would make a guardian look like it "never
+            // tried to move" the moment it hits something, and the stuck-timer
+            // would never start. Position delta doesn't lie about that.
+            float actualMovement = Vector2.Distance(transform.position, _lastPosition);
+            _lastPosition = transform.position;
+
+            if (!_isPacing && actualMovement < stuckMovementThreshold)
+            {
+                _stuckTimer += Time.deltaTime;
+            }
+            else if (!_isPacing)
+            {
+                _stuckTimer = 0f;
+            }
+
+            if (!_isPacing && _stuckTimer >= stuckTimeBeforePacing)
+            {
+                _isPacing = true;
+                _paceTimer = 0f;
+                _retreatStartPosition = transform.position;
+                _retreatCheckPosition = transform.position;
+                _retreatStuckTimer = 0f;
+                _paceDirection = -horizontalDirection; // fall back the way we came, away from the obstacle
+            }
+
+            float moveDirection;
+
+            if (_isPacing)
+            {
+                _paceTimer += Time.deltaTime;
+                moveDirection = _paceDirection;
+
+                // Also check whether the retreat ITSELF is blocked (e.g. backed
+                // into a wall or a second rock). Without this, a guardian caught
+                // between two obstacles would just stand still for up to
+                // maxRetreatTime doing nothing, since it never covers
+                // retreatDistance but also never technically "times out" yet.
+                float retreatStepMovement = Vector2.Distance(transform.position, _retreatCheckPosition);
+                _retreatCheckPosition = transform.position;
+                if (retreatStepMovement < stuckMovementThreshold)
+                {
+                    _retreatStuckTimer += Time.deltaTime;
+                }
+                else
+                {
+                    _retreatStuckTimer = 0f;
+                }
+
+                float retreatedSoFar = Mathf.Abs(transform.position.x - _retreatStartPosition.x);
+                bool coveredFullRetreat = retreatedSoFar >= retreatDistance;
+
+                // Time cap is derived from how long the retreat SHOULD take at
+                // current speed, with generous headroom — this is a safety net
+                // for a genuinely wedged guardian, not a limit that can cut a
+                // legitimate retreat short just because retreatDistance is large.
+                float expectedRetreatTime = runSpeed > 0.01f ? (retreatDistance / runSpeed) : 1f;
+                float dynamicMaxRetreatTime = Mathf.Max(expectedRetreatTime * 3f, 2f);
+                bool timedOut = _paceTimer >= dynamicMaxRetreatTime;
+
+                bool retreatItselfBlocked = _retreatStuckTimer >= stuckTimeBeforePacing;
+
+                if (coveredFullRetreat || timedOut || retreatItselfBlocked)
+                {
+                    _isPacing = false;
+                    _stuckTimer = 0f; // give chase another chance once the retreat is done
+                    _lastPosition = transform.position; // reset baseline so the next chase attempt gets a fair check
+                }
+            }
+            else
+            {
+                moveDirection = horizontalDirection;
+            }
+
+            rb.linearVelocity = new Vector2(moveDirection * runSpeed, verticalVelocity);
 
             // Flip sprite to face movement direction — standard 2D facing approach.
             var scale = transform.localScale;
-            transform.localScale = new Vector3(horizontalDirection * Mathf.Abs(scale.x), scale.y, scale.z);
+            transform.localScale = new Vector3(moveDirection * Mathf.Abs(scale.x), scale.y, scale.z);
 
-            // Use horizontal distance only for attack-range checks too, since
-            // vertical separation shouldn't stop a guardian from attacking in
-            // a side-scroller (it's expected to be roughly ground-level with the player).
-            float horizontalDist = Mathf.Abs(transform.position.x - playerTransform.position.x);
-            if (horizontalDist <= attackRange)
+            // Only check attack range while actually chasing, not while retreating.
+            if (!_isPacing)
             {
-                CurrentState = EnemyState.Attack;
+                float horizontalDist = Mathf.Abs(transform.position.x - playerTransform.position.x);
+                if (horizontalDist <= attackRange)
+                {
+                    CurrentState = EnemyState.Attack;
+                }
             }
         }
 
