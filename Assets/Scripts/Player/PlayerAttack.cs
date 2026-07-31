@@ -17,8 +17,7 @@ namespace VaultsOfTheElixir.Player
         [SerializeField] private int attackDamage = 15;
         [SerializeField] private float attackRange = 1.2f;
         [SerializeField] private float attackCooldown = 0.5f;
-        [SerializeField] private KeyCode attackKey = KeyCode.Space;
-
+        [SerializeField] private KeyCode attackKey = KeyCode.F;
         private float _cooldownTimer;
 
         private void Update()

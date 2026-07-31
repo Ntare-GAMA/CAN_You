@@ -1,59 +1,43 @@
 using UnityEngine;
-using VaultsOfTheElixir.Interfaces;
 using VaultsOfTheElixir.Core;
+using VaultsOfTheElixir.Enemies;
 
-namespace VaultsOfTheElixir.Enemies
+namespace VaultsOfTheElixir.Player
 {
-    [RequireComponent(typeof(Collider2D))]
-    public class Projectile : MonoBehaviour
+    /// <summary>
+    /// Ranged attack — spawns a pooled projectile from FirePoint, same
+    /// pattern as ArmedGuardGuardian's FireShot(), just player-controlled.
+    /// </summary>
+    public class PlayerShoot : MonoBehaviour
     {
-        [SerializeField] private string poolKey = "dragon_fireball";
-        [SerializeField] private float speed = 10f;
-        [SerializeField] private int damage = 10;
-        [SerializeField] private float lifetime = 4f;
+        [SerializeField] private Transform firePoint;
+        [SerializeField] private string projectilePoolKey = "player_bullet";
+        [SerializeField] private int shootDamage = 12;
+        [SerializeField] private float shootCooldown = 0.4f;
+        [SerializeField] private KeyCode shootKey = KeyCode.Mouse0;
 
-        private float _timer;
-        private Vector2 _direction;
-        private GameObject _owner;
-
-        /// <summary>Call immediately after Spawn(). owner is excluded from damage so shooters don't hit themselves.</summary>
-        public void Launch(Vector2 direction, int damageOverride = -1, GameObject owner = null)
-        {
-            _direction = direction.normalized;
-            _timer = 0f;
-            if (damageOverride > 0) damage = damageOverride;
-            _owner = owner;
-        }
-
-        private void OnEnable() => _timer = 0f;
+        private float _cooldownTimer;
 
         private void Update()
         {
-            transform.position += (Vector3)(_direction * speed * Time.deltaTime);
-            _timer += Time.deltaTime;
-            if (_timer >= lifetime) ReturnToPool();
-        }
+            if (_cooldownTimer > 0f) _cooldownTimer -= Time.deltaTime;
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject == _owner) return; // don't hit whoever fired it
-            if (other.CompareTag("Environment"))
+            if (Input.GetKeyDown(shootKey) && _cooldownTimer <= 0f)
             {
-                ReturnToPool();
-                return;
-            }
-
-            var damageable = other.GetComponent<IDamageable>();
-            if (damageable != null)
-            {
-                damageable.TakeDamage(damage);
-                ReturnToPool();
+                DoShoot();
             }
         }
 
-        private void ReturnToPool()
+        private void DoShoot()
         {
-            ObjectPoolManager.Instance.Return(poolKey, gameObject);
+            if (firePoint == null || ObjectPoolManager.Instance == null) return;
+
+            Vector2 facing = new Vector2(Mathf.Sign(transform.localScale.x), 0f);
+            GameObject bullet = ObjectPoolManager.Instance.Spawn(projectilePoolKey, firePoint.position, Quaternion.identity);
+            var proj = bullet.GetComponent<Projectile>();
+            proj?.Launch(facing, shootDamage, gameObject);
+
+            _cooldownTimer = shootCooldown;
         }
     }
 }
