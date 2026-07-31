@@ -134,23 +134,33 @@ namespace VaultsOfTheElixir.Enemies
 
         protected virtual void TickDefend() { }
 
-        /// <summary>Moves directly toward the player on the XY plane. Transitions to Attack once in range.</summary>
+        /// <summary>
+        /// Moves toward the player on the X axis only — this is a side-scroller,
+        /// so guardians chase horizontally and let gravity (not this method)
+        /// control their vertical position. This is what stops a guardian from
+        /// climbing/floating upward to match the player's height when the
+        /// player jumps.
+        /// </summary>
         public virtual void Move()
         {
             if (playerTransform == null) return;
 
-            Vector2 direction = ((Vector2)playerTransform.position - rb.position).normalized;
-            rb.linearVelocity = direction * runSpeed;
+            float horizontalDirection = Mathf.Sign(playerTransform.position.x - rb.position.x);
+
+            // Preserve whatever vertical velocity gravity has already applied —
+            // never overwrite it here, same principle as PlayerController.
+            float verticalVelocity = rb.linearVelocity.y;
+            rb.linearVelocity = new Vector2(horizontalDirection * runSpeed, verticalVelocity);
 
             // Flip sprite to face movement direction — standard 2D facing approach.
-            if (direction.x != 0f)
-            {
-                var scale = transform.localScale;
-                transform.localScale = new Vector3(Mathf.Sign(direction.x) * Mathf.Abs(scale.x), scale.y, scale.z);
-            }
+            var scale = transform.localScale;
+            transform.localScale = new Vector3(horizontalDirection * Mathf.Abs(scale.x), scale.y, scale.z);
 
-            float dist = Vector2.Distance(transform.position, playerTransform.position);
-            if (dist <= attackRange)
+            // Use horizontal distance only for attack-range checks too, since
+            // vertical separation shouldn't stop a guardian from attacking in
+            // a side-scroller (it's expected to be roughly ground-level with the player).
+            float horizontalDist = Mathf.Abs(transform.position.x - playerTransform.position.x);
+            if (horizontalDist <= attackRange)
             {
                 CurrentState = EnemyState.Attack;
             }
