@@ -165,9 +165,13 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  stuckMovementThreshold: 0.02
+  stuckTimeBeforePacing: 0.5
+  retreatDistance: 8
   constrictDamagePerTick: 4
   constrictDuration: 10
   tickInterval: 0.5
+  attackSound: {fileID: 8300000, guid: 502194c20ae8eb94fb71f2e770564d44, type: 3}
 --- !u!58 &171280880
 CircleCollider2D:
   m_ObjectHideFlags: 0

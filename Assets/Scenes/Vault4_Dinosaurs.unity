@@ -301,7 +301,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -419,6 +419,40 @@ MonoBehaviour:
   chargeSpeed: 6
   roarTelegraphDuration: 1
   chargeAttackRange: 1.2
+  biteSound: {fileID: 8300000, guid: 5bb96318c7e247f489acbbfa21b8c684, type: 3}
+  roarSound: {fileID: 8300000, guid: 7beb287bde555c44ca78f5470a44b57f, type: 3}
+  chargeSound: {fileID: 8300000, guid: d16cef3b1eafd4a4cba5e060163e50d5, type: 3}
+--- !u!1 &265561929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265561930}
+  m_Layer: 0
+  m_Name: VaultAmbience
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &265561930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265561929}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 626.1625, y: 154.5835, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517480650
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +734,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 1.5
 --- !u!95 &657154011
 Animator:
   serializedVersion: 7
@@ -774,7 +808,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -833,7 +867,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 4574f971d70a83c41ade6083ada1035a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -854,8 +888,8 @@ Transform:
   m_GameObject: {fileID: 657154008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 794, y: 146, z: 0}
-  m_LocalScale: {x: 34, y: 25, z: 1}
+  m_LocalPosition: {x: 797, y: 154, z: 0}
+  m_LocalScale: {x: 34, y: 30, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 944087657}
@@ -892,6 +926,9 @@ MonoBehaviour:
   chargeSpeed: 6
   roarTelegraphDuration: 1
   chargeAttackRange: 1.2
+  biteSound: {fileID: 8300000, guid: 5bb96318c7e247f489acbbfa21b8c684, type: 3}
+  roarSound: {fileID: 8300000, guid: 7beb287bde555c44ca78f5470a44b57f, type: 3}
+  chargeSound: {fileID: 8300000, guid: d16cef3b1eafd4a4cba5e060163e50d5, type: 3}
 --- !u!1 &783946734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1212,7 @@ GameObject:
   - component: {fileID: 1334371445}
   - component: {fileID: 1334371444}
   - component: {fileID: 1334371443}
+  - component: {fileID: 1334371447}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1300,6 +1338,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334371447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334371442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9b32e4a0d5b8449b6906df27428b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: VaultsOfTheElixir::VaultsOfTheElixir.Core.CameraFollow
+  smoothSpeed: 5
+  offset: {x: 0, y: 0, z: -10}
 --- !u!1 &1610161637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1610,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 3
+  m_Radius: 2
 --- !u!95 &1882451221
 Animator:
   serializedVersion: 7
@@ -1632,7 +1684,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1693,7 +1745,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300002, guid: a0e7f1167efba544bb8d6e3198ae44f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4574f971d70a83c41ade6083ada1035a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1712,8 +1764,8 @@ Transform:
   m_GameObject: {fileID: 1882451218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 626.8, y: 134.7, z: 0}
-  m_LocalScale: {x: 15.806565, y: 12.427187, z: 1}
+  m_LocalPosition: {x: 631, y: 163, z: 0}
+  m_LocalScale: {x: 30, y: 34, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1610161638}
@@ -1750,6 +1802,9 @@ MonoBehaviour:
   chargeSpeed: 6
   roarTelegraphDuration: 1
   chargeAttackRange: 1.2
+  biteSound: {fileID: 8300000, guid: 5bb96318c7e247f489acbbfa21b8c684, type: 3}
+  roarSound: {fileID: 8300000, guid: 7beb287bde555c44ca78f5470a44b57f, type: 3}
+  chargeSound: {fileID: 8300000, guid: d16cef3b1eafd4a4cba5e060163e50d5, type: 3}
 --- !u!1001 &225879775055981793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1972,3 +2027,4 @@ SceneRoots:
   - {fileID: 8082345556699406819}
   - {fileID: 422158039976188672}
   - {fileID: 1045015789}
+  - {fileID: 265561930}

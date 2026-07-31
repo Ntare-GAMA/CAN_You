@@ -11,6 +11,7 @@ namespace VaultsOfTheElixir.Enemies
         [SerializeField] private int breathDamage = 18;
         [SerializeField] private Transform breathOrigin;
         [SerializeField] private string fireballPoolKey = "dragon_fireball";
+        [SerializeField] private AudioClip attackSound;
 
         public override void Attack()
         {
@@ -21,6 +22,8 @@ namespace VaultsOfTheElixir.Enemies
         public void BreathAttack()
         {
             if (playerTransform == null || breathOrigin == null) return;
+
+            AudioManager.Instance?.PlaySFX(attackSound);
 
             Vector2 direction = ((Vector2)playerTransform.position - (Vector2)breathOrigin.position).normalized;
             int scaledDamage = DifficultyCurve.ScaleDamage(breathDamage, vaultIndex);

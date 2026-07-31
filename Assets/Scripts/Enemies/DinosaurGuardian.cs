@@ -21,6 +21,11 @@ namespace VaultsOfTheElixir.Enemies
         [SerializeField] private float roarTelegraphDuration = 1f;
         [SerializeField] private float chargeAttackRange = 1.2f;
 
+        [Header("Audio")]
+        [SerializeField] private AudioClip biteSound;
+        [SerializeField] private AudioClip roarSound;
+        [SerializeField] private AudioClip chargeSound;
+
         private bool _isCharging;
 
         public override void Attack()
@@ -32,6 +37,7 @@ namespace VaultsOfTheElixir.Enemies
             else
             {
                 animator.SetTrigger("Bite");
+                AudioManager.Instance?.PlaySFX(biteSound);
                 int scaledBite = DifficultyCurve.ScaleDamage(biteDamage, vaultIndex);
                 playerTransform?.GetComponent<IDamageable>()?.TakeDamage(scaledBite);
             }
@@ -40,6 +46,7 @@ namespace VaultsOfTheElixir.Enemies
         public void Roar()
         {
             animator.SetTrigger("Roar");
+            AudioManager.Instance?.PlaySFX(roarSound);
             StartCoroutine(ChargeAfterRoar());
         }
 
@@ -56,6 +63,7 @@ namespace VaultsOfTheElixir.Enemies
         public void ChargeAttack()
         {
             animator.SetTrigger("Charge");
+            AudioManager.Instance?.PlaySFX(chargeSound);
 
             if (playerTransform != null)
             {

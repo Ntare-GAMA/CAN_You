@@ -26,6 +26,17 @@ namespace VaultsOfTheElixir.Core
         [SerializeField] private AudioClip _elixirFoundClip;
         [SerializeField] private AudioClip _playerDamagedClip;
 
+        // Backing values for the settings panel. _musicSource.volume can
+        // momentarily be 0 while muted, so we keep the "real" slider
+        // value here separately and re-apply it on unmute.
+        private float _musicVolume = 0.75f;
+        private float _sfxVolume = 0.75f;
+        private bool _isMusicMuted = false;
+
+        public float MusicVolume => _musicVolume;
+        public float SfxVolume => _sfxVolume;
+        public bool IsMusicMuted => _isMusicMuted;
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -36,6 +47,20 @@ namespace VaultsOfTheElixir.Core
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void Start()
+        {
+            // Pull saved settings in on boot, before any music starts
+            // playing elsewhere (e.g. VaultAmbience.Start()), so the
+            // first note already respects the player's saved volume.
+            if (SaveManager.Instance != null)
+            {
+                var save = SaveManager.Instance.CurrentSave;
+                SetSfxVolume(save.sfxVolume);
+                SetMusicVolume(save.musicVolume);
+                SetMusicMuted(save.musicMuted);
+            }
         }
 
         private void OnEnable()
@@ -87,10 +112,40 @@ namespace VaultsOfTheElixir.Core
             if (clip == null || _musicSource == null) return;
             _musicSource.clip = clip;
             _musicSource.loop = loop;
+            // Respect current mute state even when a new track starts.
+            _musicSource.volume = _isMusicMuted ? 0f : _musicVolume;
             _musicSource.Play();
         }
 
-        public void SetMusicVolume(float volume) => _musicSource.volume = volume;
-        public void SetSfxVolume(float volume) => _sfxSource.volume = volume;
+        /// <summary>Sets the music slider value. Actual audible volume stays
+        /// 0 while muted, but this is remembered so unmuting restores it.</summary>
+        public void SetMusicVolume(float volume)
+        {
+            _musicVolume = volume;
+            if (_musicSource != null && !_isMusicMuted)
+            {
+                _musicSource.volume = volume;
+            }
+        }
+
+        public void SetSfxVolume(float volume)
+        {
+            _sfxVolume = volume;
+            if (_sfxSource != null)
+            {
+                _sfxSource.volume = volume;
+            }
+        }
+
+        /// <summary>Toggling this silences/restores music without touching
+        /// the remembered slider value, so unmuting comes back at the same level.</summary>
+        public void SetMusicMuted(bool muted)
+        {
+            _isMusicMuted = muted;
+            if (_musicSource != null)
+            {
+                _musicSource.volume = muted ? 0f : _musicVolume;
+            }
+        }
     }
 }

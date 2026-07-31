@@ -1126,9 +1126,13 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  stuckMovementThreshold: 0.02
+  stuckTimeBeforePacing: 0.5
+  retreatDistance: 8
   breathDamage: 18
   breathOrigin: {fileID: 31565519}
   fireballPoolKey: dragon_fireball
+  attackSound: {fileID: 8300000, guid: f97ca97a196db444aab0439f18658230, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

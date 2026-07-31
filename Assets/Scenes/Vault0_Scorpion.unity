@@ -901,7 +901,11 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  stuckMovementThreshold: 0.02
+  stuckTimeBeforePacing: 0.5
+  retreatDistance: 8
   stingDamage: 12
+  attackSound: {fileID: 8300000, guid: 502194c20ae8eb94fb71f2e770564d44, type: 3}
 --- !u!95 &2049418557
 Animator:
   serializedVersion: 7

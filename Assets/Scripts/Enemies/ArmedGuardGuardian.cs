@@ -12,6 +12,7 @@ namespace VaultsOfTheElixir.Enemies
         [SerializeField] private Transform firePoint;
         [SerializeField] private string projectilePoolKey = "guard_bullet";
         [SerializeField] private float squadCallRadius = 10f;
+        [SerializeField] private AudioClip attackSound;
 
         public override void Attack()
         {
@@ -22,6 +23,8 @@ namespace VaultsOfTheElixir.Enemies
         private void FireShot()
         {
             if (playerTransform == null || firePoint == null) return;
+
+            AudioManager.Instance?.PlaySFX(attackSound);
 
             Vector2 direction = ((Vector2)playerTransform.position - (Vector2)firePoint.position).normalized;
             int scaledDamage = DifficultyCurve.ScaleDamage(shotDamage, vaultIndex);

@@ -11,6 +11,7 @@ namespace VaultsOfTheElixir.Enemies
         [SerializeField] private int constrictDamagePerTick = 4;
         [SerializeField] private float constrictDuration = 3f;
         [SerializeField] private float tickInterval = 0.5f;
+        [SerializeField] private AudioClip attackSound;
 
         private bool _isConstricting;
 
@@ -26,6 +27,7 @@ namespace VaultsOfTheElixir.Enemies
         {
             _isConstricting = true;
             animator.SetTrigger("Constrict");
+            AudioManager.Instance?.PlaySFX(attackSound);
             StartCoroutine(ConstrictRoutine(target));
         }
 

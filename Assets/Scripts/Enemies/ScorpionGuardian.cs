@@ -9,10 +9,12 @@ namespace VaultsOfTheElixir.Enemies
     {
         [Header("Scorpion")]
         [SerializeField] private int stingDamage = 12;
+        [SerializeField] private AudioClip attackSound;
 
         public override void Attack()
         {
             animator.SetTrigger("Sting");
+            AudioManager.Instance?.PlaySFX(attackSound);
             if (playerTransform != null)
             {
                 PoisonSting(playerTransform.gameObject);

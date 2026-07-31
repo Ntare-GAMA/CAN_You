@@ -863,10 +863,14 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  stuckMovementThreshold: 0.02
+  stuckTimeBeforePacing: 0.5
+  retreatDistance: 8
   shotDamage: 8
   firePoint: {fileID: 1610161638}
   projectilePoolKey: guard_bullet
   squadCallRadius: 10
+  attackSound: {fileID: 8300000, guid: a77645be26981d74a8831658e381ed07, type: 3}
 --- !u!58 &1882451220
 CircleCollider2D:
   m_ObjectHideFlags: 0

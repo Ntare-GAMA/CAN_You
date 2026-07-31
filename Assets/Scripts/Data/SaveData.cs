@@ -39,6 +39,7 @@ namespace VaultsOfTheElixir.Data
         // Settings
         public float musicVolume = 0.75f;
         public float sfxVolume = 0.75f;
+        public bool musicMuted = false;
 
         // Metadata
         public string lastSavedUtc = "";
