@@ -134,9 +134,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VaultsOfTheElixir.UI.VaultButtonUI
   iconImage: {fileID: 343373255085670475}
-  lockedSprite: {fileID: 7482667652216324306, guid: 80a16279446b32a42838812da34d6bde, type: 3}
-  availableSprite: {fileID: 7482667652216324306, guid: 80a16279446b32a42838812da34d6bde, type: 3}
-  completedSprite: {fileID: 7482667652216324306, guid: 80a16279446b32a42838812da34d6bde, type: 3}
+  lockedSprite: {fileID: 7482667652216324306, guid: 80a16279446b32a42838812da34d6bde,
+    type: 3}
+  availableSprite: {fileID: 7482667652216324306, guid: 80a16279446b32a42838812da34d6bde,
+    type: 3}
+  completedSprite: {fileID: 7482667652216324306, guid: 80a16279446b32a42838812da34d6bde,
+    type: 3}
   lockedTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   availableTint: {r: 1, g: 1, b: 1, a: 1}
   completedTint: {r: 1, g: 0.85, b: 0.4, a: 1}

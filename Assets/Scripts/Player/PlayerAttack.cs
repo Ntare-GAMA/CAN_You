@@ -34,6 +34,18 @@ namespace VaultsOfTheElixir.Player
             }
         }
 
+        /// <summary>
+        /// Public entry point for a UI attack button's OnClick — same cooldown
+        /// gating as the keyboard path. Wire a Button's OnClick to this in the
+        /// Inspector for touch/web builds.
+        /// </summary>
+        public void TryAttack()
+        {
+            if (_cooldownTimer > 0f) return;
+            PerformAttack();
+            _cooldownTimer = attackCooldown;
+        }
+
         private void PerformAttack()
         {
             Vector2 facingDirection = new Vector2(Mathf.Sign(transform.localScale.x), 0f);

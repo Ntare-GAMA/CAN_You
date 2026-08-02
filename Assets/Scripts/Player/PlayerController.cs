@@ -73,9 +73,20 @@ namespace VaultsOfTheElixir.Player
         {
             if (_isDead) return;
 
+            // Keyboard input, same as always.
             _horizontalInput = Input.GetAxisRaw("Horizontal");
 
+            // If a VirtualJoystick exists in the scene (touch/web build) and the
+            // player is actively dragging it, let it override keyboard input for
+            // that frame. On desktop with no joystick in the scene, this block
+            // does nothing and keyboard behaves exactly as before.
+            if (VirtualJoystick.Instance != null && Mathf.Abs(VirtualJoystick.Instance.Horizontal) > 0f)
+            {
+                _horizontalInput = VirtualJoystick.Instance.Horizontal;
+            }
+
             // Jump input: Space (default "Jump" button) or W, either triggers it.
+            // TryJump() below covers the same queuing for a touch/UI button.
             if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W))
             {
                 _jumpQueued = true;
@@ -92,6 +103,17 @@ namespace VaultsOfTheElixir.Player
             }
         }
 
+        /// <summary>
+        /// Public entry point for a UI jump button's OnClick — queues a jump
+        /// exactly like pressing Space/W does. Wire a Button's OnClick to this
+        /// in the Inspector for touch/web builds.
+        /// </summary>
+        public void TryJump()
+        {
+            if (_isDead) return;
+            _jumpQueued = true;
+        }
+
         private void FixedUpdate()
         {
             if (_isDead) return;
@@ -99,9 +121,6 @@ namespace VaultsOfTheElixir.Player
             // Ground check happens in FixedUpdate to stay in sync with physics.
             _isGrounded = groundCheck != null &&
                           Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
-            // TEMPORARY DIAGNOSTIC — remove once jump is confirmed working.
-            Debug.Log($"[PlayerController] isGrounded: {_isGrounded} | groundCheck pos: {groundCheck?.position} | radius: {groundCheckRadius} | groundLayer mask: {groundLayer.value}");
 
             // Horizontal movement is fully player-controlled.
             // Vertical velocity is left alone here so gravity keeps acting on it —
@@ -149,7 +168,7 @@ namespace VaultsOfTheElixir.Player
         public void TakeDamage(int amount)
         {
             if (_isDead) return;
-
+                Debug.Log($"[PlayerController] TakeDamage called with amount: {amount}");
             // If either ability slot holds a GuardianWardAbility and it's
             // currently active, reduce incoming damage accordingly. This
             // is the only place ward damage reduction needs to be

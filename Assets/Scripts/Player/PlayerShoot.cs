@@ -28,6 +28,17 @@ namespace VaultsOfTheElixir.Player
             }
         }
 
+        /// <summary>
+        /// Public entry point for a UI shoot button's OnClick — same cooldown
+        /// gating as the mouse-click path. Wire a Button's OnClick to this in
+        /// the Inspector for touch/web builds.
+        /// </summary>
+        public void TryShoot()
+        {
+            if (_cooldownTimer > 0f) return;
+            DoShoot();
+        }
+
         private void DoShoot()
         {
             if (firePoint == null || ObjectPoolManager.Instance == null) return;

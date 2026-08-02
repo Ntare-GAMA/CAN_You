@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using VaultsOfTheElixir.Interfaces;
 using VaultsOfTheElixir.Core;
+using VaultsOfTheElixir.UI;
 
 namespace VaultsOfTheElixir.Enemies
 {
@@ -40,6 +41,10 @@ namespace VaultsOfTheElixir.Enemies
         [SerializeField] protected float attackRange = 1.5f;
         [SerializeField] protected float runSpeed = 3.5f;
         [SerializeField] protected float attackCooldown = 2f;
+
+        [Header("Health Bar")]
+        [Tooltip("Assign this guardian's WorldHealthBar (child object) to display and update its health above its head. Leave empty if this guardian has no health bar.")]
+        [SerializeField] protected WorldHealthBar healthBar;
 
         [Header("Events")]
         [Tooltip("Invoked once, right when this guardian dies. Wire this in the Inspector to hook up " +
@@ -83,6 +88,8 @@ namespace VaultsOfTheElixir.Enemies
             // later guardians are tankier without hand-tuning each one.
             maxHealth = DifficultyCurve.ScaleHealth(maxHealth, vaultIndex);
             currentHealth = maxHealth;
+
+            healthBar?.UpdateFill(currentHealth, maxHealth);
         }
 
         protected virtual void Update()
@@ -135,7 +142,14 @@ namespace VaultsOfTheElixir.Enemies
             if (playerTransform == null) { CurrentState = EnemyState.Idle; return; }
 
             rb.linearVelocity = Vector2.zero;
-            float dist = Vector2.Distance(transform.position, playerTransform.position);
+
+            // Horizontal-only, matching Move()'s side-scroller logic — using
+            // full 2D distance here caused Attack/Chase to oscillate forever
+            // whenever the player was vertically offset (e.g. mid-jump or on
+            // a different platform height), since Move() only checks X but
+            // this was checking X+Y, so the two never agreed on "in range."
+            float dist = Mathf.Abs(transform.position.x - playerTransform.position.x);
+            Debug.Log($"[Guardian] horizontal distance: {dist}, attackRange: {attackRange}");
 
             if (dist > attackRange * 1.2f)
             {
@@ -284,6 +298,7 @@ namespace VaultsOfTheElixir.Enemies
 
             currentHealth = Mathf.Max(0, currentHealth - amount);
             animator?.SetTrigger("Hit");
+            healthBar?.UpdateFill(currentHealth, maxHealth);
 
             if (currentHealth <= 0)
             {

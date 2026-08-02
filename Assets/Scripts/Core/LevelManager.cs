@@ -17,6 +17,16 @@ namespace VaultsOfTheElixir.Core
         public const int FinalVaultIndex = 4;
         private const int RelicsRequiredForFinalVault = 4;
 
+        [Header("Display names, index-matched to level index")]
+        [SerializeField] private string[] levelNames = new string[]
+        {
+            "Vault of Sorrow",
+            "Ancient Reliquary",
+            "Ashen Depths",
+            "Drowned Sanctum",
+            "Vault of the Elixir"
+        };
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -36,6 +46,15 @@ namespace VaultsOfTheElixir.Core
                 return LevelStatus.Locked;
 
             return (LevelStatus)save.levelStatus[levelIndex];
+        }
+
+        /// <summary>Returns this level's display name, or a fallback "Level N" if no name is set.</summary>
+        public string GetLevelName(int levelIndex)
+        {
+            if (levelIndex < 0 || levelIndex >= levelNames.Length || string.IsNullOrEmpty(levelNames[levelIndex]))
+                return $"Level {levelIndex + 1}";
+
+            return levelNames[levelIndex];
         }
 
         public bool CanAccessLevel(int levelIndex) => GetStatus(levelIndex) != LevelStatus.Locked;

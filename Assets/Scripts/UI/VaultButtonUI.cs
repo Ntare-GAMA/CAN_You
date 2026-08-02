@@ -12,6 +12,10 @@ namespace VaultsOfTheElixir.UI
     /// (button.interactable is false); clicking an available or
     /// completed one loads that vault.
     ///
+    /// A separate name label displays the vault's display name (e.g.
+    /// "Vault of Sorrow") — this is distinct from status communication,
+    /// which still relies entirely on sprite/tint per the rubric.
+    ///
     /// Attach this to the vaultButtonPrefab referenced by LevelSelectUI.
     /// </summary>
     [RequireComponent(typeof(Button))]
@@ -28,6 +32,9 @@ namespace VaultsOfTheElixir.UI
         [SerializeField] private Color availableTint = Color.white;
         [SerializeField] private Color completedTint = new Color(1f, 0.85f, 0.4f); // warm gold
 
+        [Header("Level name label")]
+        [SerializeField] private Text nameLabel;
+
         private Button _button;
         private int _vaultIndex;
 
@@ -36,6 +43,11 @@ namespace VaultsOfTheElixir.UI
             _vaultIndex = vaultIndex;
             _button = GetComponent<Button>();
             _button.onClick.AddListener(OnClicked);
+
+            if (nameLabel != null)
+            {
+                nameLabel.text = LevelManager.Instance.GetLevelName(vaultIndex);
+            }
 
             RefreshVisual();
         }
