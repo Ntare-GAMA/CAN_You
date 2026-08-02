@@ -213,8 +213,8 @@ Previously listed as not-yet-built — now implemented:
 ## Known Issues / To-Do
 
 - [ ] Replace placeholder/temporary sprite art with final, copyright-cleared assets
-- [x] ~~HUD content (health bar, ability cooldown icons, objective text) not yet built~~ — health bars, objectives panel, and win/lose panels now implemented. Ability cooldown icons still pending.
-- [x] ~~Pause / Game Over / Level Complete / Elixir Win screens need visible content~~ — Game Over and Win panels now implemented. Pause and Level Complete screens still need content.
+- [x] HUD Content — health bars, objectives panel, and win/lose panels now implemented. Ability cooldown icons still pending.
+- [x] Elixir wins screen — Game Over and Win panels now implemented. Pause and Level Complete screens still need content.
 - [ ] REST API leaderboard (jsonbin.io) not yet implemented
 - [ ] Unit tests (8+ NUnit tests) not yet written
 - [ ] Conditional compilation for WebGL/PC/Mobile input not yet added beyond one editor-only example (`#if UNITY_EDITOR` gizmo drawing in `PlayerController`)
